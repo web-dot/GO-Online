@@ -1,0 +1,55 @@
+
+{
+    "_id" : ObjectId("636ce5762e4b6fceaf52537d"),
+    "name" : "LENOVO THINKPAD",
+    "description" : "xxxx"
+}
+
+
+{
+    "_id" : ObjectId("636ce5762e4b6fceaf52537e"),
+    "name" : "DELL-INSPIRON",
+    "description" : "xxxx"
+}
+
+
+{
+    "_id" : ObjectId("636ce5762e4b6fceaf52537f"),
+    "name" : "DELL-INSPIRON-XSERIES",
+    "description" : "xxxx"
+}
+
+
+{
+    "_id" : ObjectId("636ce5762e4b6fceaf525380"),
+    "name" : "LENOVO-IDEAPAD",
+    "description" : "xxxx"
+}
+
+
+{
+    "_id" : ObjectId("636ce5762e4b6fceaf525381"),
+    "name" : "DELL-ULTRABOOK",
+    "description" : "xxxx"
+}
+
+
+{
+    "_id" : ObjectId("636ce5762e4b6fceaf525382"),
+    "name" : "DELL-INSPIRON-XSERIES",
+    "description" : "xxxx"
+}
+
+
+{
+    "_id" : ObjectId("636ce5762e4b6fceaf525383"),
+    "name" : "LENOVO-IDEAPAD",
+    "description" : "xxxx"
+}
+
+
+{
+    "_id" : ObjectId("636ce5762e4b6fceaf525384"),
+    "name" : "LENOVO-P50",
+    "description" : "xxxx"
+}

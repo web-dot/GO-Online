@@ -1,0 +1,13 @@
+package com.example.estoreserver;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class EStoreServerApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(EStoreServerApplication.class, args);
+	}
+
+}
