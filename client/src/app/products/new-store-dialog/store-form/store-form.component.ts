@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-store-form',
@@ -11,13 +12,17 @@ export class StoreFormComponent implements OnInit {
   description: string = "Fill the details to start your 'Store'"
   
   regForm = new FormGroup({
-    name: new FormControl(''),
-    uname: new FormControl(''),
-    email: new FormControl(''),
-    pass: new FormControl('')
+    shopName: new FormControl(''),
+    productCategory: new FormControl(''),
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+    openTime: new FormControl(''),
+    closeTime: new FormControl(''),
   })
 
-  constructor() { }
+  constructor(
+    private dialogRef: MatDialogRef<StoreFormComponent>
+  ) { }
 
   ngOnInit(): void {
   }
@@ -25,12 +30,15 @@ export class StoreFormComponent implements OnInit {
 
 
   submit(){
-    debugger;
-    let user = this.regForm.value; //obj
-    // this.users.push(user);
-    // this.reset();
-    // localStorage.setItem('usersDB', JSON.stringify(this.users));
+    let storeDetails = this.regForm.value;
+    console.log(storeDetails);
+    this.dialogRef.close(storeDetails);
+    this.close();
   }
+
+  close() {
+    this.dialogRef.close();
+}
 
 
 }

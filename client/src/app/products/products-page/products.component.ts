@@ -3,6 +3,7 @@ import { Product } from 'src/app/domains/Product';
 import { ProductsService } from './products.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog'
 import { StoreFormComponent } from '../new-store-dialog/store-form/store-form.component';
+import { Router } from '@angular/router';
 
 
 
@@ -19,7 +20,8 @@ export class ProductsComponent implements OnInit {
 
   constructor(
     private productsService: ProductsService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private router: Router
     ) { }
 
   ngOnInit(): void {
@@ -45,6 +47,13 @@ export class ProductsComponent implements OnInit {
 
     }
     let dialogRef = this.dialog.open(StoreFormComponent, dialogConfig)
+    .afterClosed().subscribe(
+      data => this.router.navigate(['/app-store-landing-page'], {
+        queryParams: {
+          
+        }
+      })
+    )
   }
 
 }
