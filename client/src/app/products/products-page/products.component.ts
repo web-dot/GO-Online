@@ -4,6 +4,7 @@ import { ProductsService } from './products.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog'
 import { StoreFormComponent } from '../new-store-dialog/store-form/store-form.component';
 import { Router } from '@angular/router';
+import { StoreDetails } from 'src/app/domains/StoreDetails';
 
 
 
@@ -17,6 +18,7 @@ export class ProductsComponent implements OnInit {
 
   products: Product[];
   link : string;
+  storeDetails: StoreDetails;
 
   constructor(
     private productsService: ProductsService,
@@ -46,10 +48,11 @@ export class ProductsComponent implements OnInit {
     dialogConfig.data = {
 
     }
-    let dialogRef = this.dialog.open(StoreFormComponent, dialogConfig)
+    this.dialog.open(StoreFormComponent, dialogConfig)
     .afterClosed().subscribe(
       data => this.router.navigate(['/app-store-landing-page'], {
-        queryParams: {
+        queryParams: {  
+          storeDetails: data
           
         }
       })
