@@ -1,0 +1,75 @@
+<h2 mat-dialog-title>{{description}}</h2>
+
+<mat-dialog-content class="example-container">
+  
+    <form [formGroup]='regForm'>
+
+        <div class="store-details">
+            <p>Store Name : Product Type</p>
+            <mat-form-field>
+                <mat-label></mat-label>
+                <input type="text" placeholder="store name" matInput formControlName="shopName" required>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Select Product Type</mat-label>
+                <mat-select>
+                  <mat-option value="one">Electronics</mat-option>
+                  <mat-option value="one">Computer Peripherals</mat-option>
+                  <mat-option value="two">Mobiles</mat-option>
+                  <mat-option value="two">Gadgets</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="name">
+            <p>Owner Name</p>
+            <mat-form-field>
+              <mat-label>FirstName</mat-label>
+              <input type="text" matInput formControlName="firstName" required>
+            </mat-form-field>
+    
+            <mat-form-field>
+                <mat-label>LastName</mat-label>
+                <input type="text" matInput formControlName="lastName" required>
+            </mat-form-field>
+        </div>
+ 
+        <div>
+            <p>Select opening and closing time</p>
+            <mat-form-field>
+                <mat-label>Opening Time</mat-label>
+                <mat-select>
+                  <mat-option value="one">09</mat-option>
+                  <mat-option value="one">10</mat-option>
+                  <mat-option value="two">11</mat-option>
+                  <mat-option value="two">12</mat-option>
+                  <mat-option value="one">21</mat-option>
+                  <mat-option value="one">22</mat-option>
+                  <mat-option value="two">23</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Closing Time</mat-label>
+                <mat-select>
+                  <mat-option value="one">18</mat-option>
+                  <mat-option value="one">19</mat-option>
+                  <mat-option value="two">20</mat-option>
+                  <mat-option value="two">21</mat-option>
+                  <mat-option value="one">06</mat-option>
+                  <mat-option value="one">07</mat-option>
+                  <mat-option value="two">08</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+  </form>
+ 
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-raised-button (click)="submit()">START STORE</button>
+    <!-- <button mat-button color="accent" (click)="submit()">Accent</button> -->
+    <!-- <button class="mat-raised-button mat-primary"(click)="save()">Save</button> -->
+</mat-dialog-actions>

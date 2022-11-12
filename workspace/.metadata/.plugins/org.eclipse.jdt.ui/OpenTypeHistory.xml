@@ -1,5 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<typeInfoHistroy>
-    <typeInfo handle="=e-store-server/C:\/Users\/admin\/.m2\/repository\/org\/springframework\/data\/spring-data-mongodb\/3.4.5\/spring-data-mongodb-3.4.5.jar=/maven.pomderived=/true=/=/maven.pomderived=/true=/=/maven.groupId=/org.springframework.data=/=/maven.artifactId=/spring-data-mongodb=/=/maven.version=/3.4.5=/=/maven.scope=/compile=/&lt;org.springframework.data.mongodb.repository(MongoRepository.class[MongoRepository" modifiers="1537" timestamp="1666888005571"/>
-    <typeInfo handle="=e-store-server/C:\/Users\/admin\/.m2\/repository\/org\/yaml\/snakeyaml\/1.30\/snakeyaml-1.30.jar=/maven.pomderived=/true=/=/maven.pomderived=/true=/=/maven.groupId=/org.yaml=/=/maven.artifactId=/snakeyaml=/=/maven.version=/1.30=/=/maven.scope=/compile=/&lt;org.yaml.snakeyaml.parser(Production.class[Production" modifiers="1536" timestamp="1658343739666"/>
-</typeInfoHistroy>
+<typeInfoHistroy/>

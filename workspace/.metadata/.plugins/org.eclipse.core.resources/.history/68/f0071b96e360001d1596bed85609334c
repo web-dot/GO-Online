@@ -1,7 +1,0 @@
-package com.estore.repository;
-
-import org.springframework.data.mongodb.repository.MongoRepository;
-
-public class ProductRepository implements MongoRepository<T, ID> {
-
-}

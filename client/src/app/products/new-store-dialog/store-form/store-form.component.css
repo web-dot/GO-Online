@@ -1,0 +1,16 @@
+
+
+  .mat-form-field{
+    width: 45%;
+    margin-left: 20px;
+  }
+
+  button{
+    margin-top: 20p;
+    width: 80%;
+    margin: auto;
+    height: 100px;
+    background-color: dodgerblue;
+    font-size: large;
+    color: aliceblue;
+  }
