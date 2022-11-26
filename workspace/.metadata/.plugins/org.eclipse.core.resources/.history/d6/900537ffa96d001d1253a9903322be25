@@ -1,0 +1,8 @@
+package com.estore.domain;
+
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "Store")
+public class StoreData {
+
+}

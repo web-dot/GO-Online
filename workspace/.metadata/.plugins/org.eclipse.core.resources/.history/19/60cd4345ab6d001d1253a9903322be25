@@ -1,0 +1,13 @@
+package ecom.estore.service;
+
+import org.apache.catalina.Store;
+
+public class StoreServiceImpl implements StoreService {
+
+	@Override
+	public Store createNewStore(Store store) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

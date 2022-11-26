@@ -13,12 +13,15 @@ import { StoreFormComponent } from './products/new-store-dialog/store-form/store
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { StoreLandingPageComponent } from './storelandingpage/store-landing-page/store-landing-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
-    StoreFormComponent
+    StoreFormComponent,
+    StoreLandingPageComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,8 @@ import {MatButtonModule} from '@angular/material/button';
     ReactiveFormsModule,
     MatInputModule,
     MatSelectModule,
-    MatButtonModule
+    MatButtonModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

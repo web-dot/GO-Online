@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StoreDetails } from 'src/app/domains/StoreDetails';
 import { ActivatedRoute } from '@angular/router';
+import { StorelandingpageService } from '../storelandingpage.service';
 
 @Component({
   selector: 'app-store-landing-page',
@@ -9,7 +10,10 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class StoreLandingPageComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(
+    private route: ActivatedRoute,
+    private storeService: StorelandingpageService
+    ) { }
 
   storeDetails: StoreDetails = new StoreDetails();
 
@@ -21,6 +25,14 @@ export class StoreLandingPageComponent implements OnInit {
     this.storeDetails.openTime = this.route.snapshot.queryParams["openTime"];
     this.storeDetails.closeTime = this.route.snapshot.queryParams["closeTime"];
     console.log(this.storeDetails);
+    this.saveStoreData();
+  }
+
+
+  saveStoreData(){
+    this.storeService.saveStoreData(this.storeDetails).subscribe(data => {
+      console.log(data);
+    });
   }
 
 

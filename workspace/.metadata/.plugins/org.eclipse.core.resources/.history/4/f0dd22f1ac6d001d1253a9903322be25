@@ -1,0 +1,8 @@
+package com.estore.repository;
+
+import org.apache.catalina.Store;
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+public interface StoreRepository extends MongoRepository<Store, String>  {
+	
+}

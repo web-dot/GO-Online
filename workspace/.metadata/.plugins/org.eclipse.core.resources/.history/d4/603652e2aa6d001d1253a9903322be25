@@ -1,0 +1,5 @@
+package ecom.estore.service;
+
+public interface StoreService {
+
+}

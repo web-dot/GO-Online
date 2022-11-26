@@ -1,0 +1,5 @@
+package com.estore.repository;
+
+public interface StoreRepository {
+
+}

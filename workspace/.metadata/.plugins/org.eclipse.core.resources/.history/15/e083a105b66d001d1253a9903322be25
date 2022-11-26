@@ -1,0 +1,9 @@
+package com.estore.service;
+
+import org.apache.catalina.Store;
+
+public interface StoreService {
+	
+	
+	public Store createNewStore(Store store);
+}
