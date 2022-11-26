@@ -49,14 +49,18 @@ export class ProductsComponent implements OnInit {
 
     }
     this.dialog.open(StoreFormComponent, dialogConfig)
-    .afterClosed().subscribe(
-      data => this.router.navigate(['/app-store-landing-page'], {
-        queryParams: {  
-          storeDetails: data
-          
+    .afterClosed().subscribe(data => {
+      this.router.navigate(['/app-store-landing-page'], {
+        queryParams: {
+          "shopName": data.data.shopName,
+          "productCategory": data.data.productCategory,  
+          "firstName": data.data.firstName,
+          "lastName": data.data.lastName,
+          "openTime": data.data.openTime,
+          "closeTime": data.data.closeTime
         }
       })
-    )
+    })
   }
 
 }

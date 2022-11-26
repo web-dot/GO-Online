@@ -1,0 +1,10 @@
+11/26/22: 
+accessing store-form(new store dialog) data in store landing page using queryparams 
+
+
+this.router.navigate(['/app-store-landing-page'], {
+        queryParams: {  
+          "firstName": data.firstName
+
+        }
+      })

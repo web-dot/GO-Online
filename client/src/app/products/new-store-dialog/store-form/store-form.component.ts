@@ -32,8 +32,8 @@ export class StoreFormComponent implements OnInit {
   submit(){
     let storeDetails = this.regForm.value;
     console.log(storeDetails);
-    this.dialogRef.close(storeDetails);
-    this.close();
+    this.dialogRef.close({ flag : true, data : this.regForm.value });
+    //this.close();
   }
 
   close() {
