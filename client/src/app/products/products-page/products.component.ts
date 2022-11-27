@@ -5,6 +5,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog'
 import { StoreFormComponent } from '../new-store-dialog/store-form/store-form.component';
 import { Router } from '@angular/router';
 import { StoreDetails } from 'src/app/domains/StoreDetails';
+import { ExistingStoreDialogComponent } from '../existing-store-dialog/existing-store-dialog.component';
 
 
 
@@ -60,6 +61,27 @@ export class ProductsComponent implements OnInit {
           "closeTime": data.data.closeTime
         }
       })
+    })
+  }
+
+  existingStoreDialog(){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.hasBackdrop = true;
+    dialogConfig.width = '600px';
+    dialogConfig.height = '500px';
+    dialogConfig.data = {}
+
+    this.dialog.open(ExistingStoreDialogComponent, dialogConfig)
+    .afterClosed().subscribe(data => {
+      this.router.navigate(['/app-store-landing-page'], {
+        queryParams:{
+          "firstName":data.data.firstName,
+          "lastName": data.data.lastName,
+          "shopName": data.data.shopName
+        }
+      });
     })
   }
 

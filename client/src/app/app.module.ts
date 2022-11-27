@@ -15,13 +15,15 @@ import { MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { StoreLandingPageComponent } from './storelandingpage/store-landing-page/store-landing-page.component';
+import { ExistingStoreDialogComponent } from './products/existing-store-dialog/existing-store-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
     StoreFormComponent,
-    StoreLandingPageComponent
+    StoreLandingPageComponent,
+    ExistingStoreDialogComponent
   ],
   imports: [
     BrowserModule,
