@@ -1,8 +1,0 @@
-package com.estore.service;
-
-
-public interface StoreService {
-	
-	
-	public StoreData createNewStore(StoreData storeData);
-}
