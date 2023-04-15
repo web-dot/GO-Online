@@ -21,7 +21,7 @@ export class ProductsService {
     //withCredentials?: boolean,
   }
 
-  getAllProducts(): Observable<Object>{
+  getAllProducts(): Observable<any>{
     return this.http.get(this.baseUrl + "/api/getAllProducts", this.options);
   }
 

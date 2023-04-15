@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-store-form',
@@ -21,7 +21,8 @@ export class StoreFormComponent implements OnInit {
   })
 
   constructor(
-    private dialogRef: MatDialogRef<StoreFormComponent>
+    private dialogRef: MatDialogRef<StoreFormComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
 
   ngOnInit(): void {
@@ -30,10 +31,8 @@ export class StoreFormComponent implements OnInit {
 
 
   submit(){
-    let storeDetails = this.regForm.value;
-    console.log(storeDetails);
-    this.dialogRef.close({ flag : true, data : this.regForm.value });
-    //this.close();
+    const storeDetails = this.regForm.value;
+    this.dialogRef.close(storeDetails);
   }
 
   close() {

@@ -1,3 +1,6 @@
+
+declare var google: any;
+
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/domains/Product';
 import { ProductsService } from './products.service';
@@ -29,6 +32,22 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.displayProductsOnLoad();
+
+    window.onload = () => {
+      google.accounts.id.initialize({
+        client_id: "113730373728-lu02f6c5mcjr8ae755463ns05a4k9hqi.apps.googleusercontent.com",
+        callback: this.handleCredentialResponse
+      });
+      google.accounts.id.renderButton(
+        document.getElementById("buttonDiv"),
+        { theme: "outline", size: "large" }  // customization attributes
+      );
+      google.accounts.id.prompt(); // also display the One Tap dialog
+    }
+  }
+
+  handleCredentialResponse(response: any) {
+    console.log("Encoded JWT ID token: " + response.credential);
   }
 
   displayProductsOnLoad(){
@@ -40,28 +59,27 @@ export class ProductsComponent implements OnInit {
   }
 
   newShopDialog(){
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = false;
-    dialogConfig.autoFocus = true;
-    dialogConfig.hasBackdrop = true;
-    dialogConfig.width = '600px';
-    dialogConfig.height = '500px';
-    dialogConfig.data = {
-
-    }
-    this.dialog.open(StoreFormComponent, dialogConfig)
-    .afterClosed().subscribe(data => {
+    const dialogRef = this.dialog.open(StoreFormComponent, {
+      width: '600px',
+      height: '500px',
+      disableClose: false,
+      autoFocus: true,
+      hasBackdrop: true,
+      data:{}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
       this.router.navigate(['/app-store-landing-page'], {
-        queryParams: {
-          "shopName": data.data.shopName,
-          "productCategory": data.data.productCategory,  
-          "firstName": data.data.firstName,
-          "lastName": data.data.lastName,
-          "openTime": data.data.openTime,
-          "closeTime": data.data.closeTime
+        queryParams:{
+          shopName: result.shopName,
+          productCategory: result.productCategory,  
+          firstName: result.firstName,
+          lastName: result.lastName,
+          openTime: result.openTime,
+          closeTime: result.closeTime
         }
-      })
-    })
+      });
+    });
   }
 
   existingStoreDialog(){
@@ -85,4 +103,8 @@ export class ProductsComponent implements OnInit {
     })
   }
 
+ 
+
 }
+
+
