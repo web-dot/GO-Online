@@ -1,7 +1,7 @@
 
 declare var google: any;
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { Product } from 'src/app/domains/Product';
 import { ProductsService } from './products.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog'
@@ -27,7 +27,8 @@ export class ProductsComponent implements OnInit {
   constructor(
     public productsService: ProductsService,
     private dialog: MatDialog,
-    private router: Router
+    private router: Router,
+    private ngZone: NgZone
     ) { 
       this.productsService = productsService;
     }
@@ -50,16 +51,31 @@ export class ProductsComponent implements OnInit {
 
   handleCredentialResponse(response: any) {
     console.log("Encoded JWT ID token: " + response.credential);
-    if(response){
-      this.productsService.sendToken(response.credential).subscribe(data => {
-        console.log(data);
+    const idToken = response.credential;
+    this.getUserDetailsOnIDToken(idToken);
+  }
+
+  getUserDetailsOnIDToken(idtoken: string){
+    if(idtoken !== null){
+      this.productsService.sendToken(idtoken).subscribe(response => {
+        this.ngZone.run(() => {
+          this.router.navigate(['/app-store-landing-page'], {
+            queryParams:{
+              name: response.name,
+            }
+          });
+        });
       },
       error => {
         console.log(error);
-      }
-      );
+      });
     }
   }
+
+
+
+
+
 
   displayProductsOnLoad(){
     this.productsService.getAllProducts().subscribe(data => {

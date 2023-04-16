@@ -1,8 +1,7 @@
 export class StoreDetails{
     shopName: string;
     productCategory: string;
-    firstName: string;
-    lastName: string;
+    name: string;
     openTime: string;
     closeTime: string;
 }
