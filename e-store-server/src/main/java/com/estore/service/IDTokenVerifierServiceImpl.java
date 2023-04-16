@@ -3,14 +3,16 @@ package com.estore.service;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.util.Collections;
+import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.estore.domain.User;
+import com.estore.repository.UserRepository;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken.Payload;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier;
-
 import com.google.api.client.http.HttpTransport;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.JsonFactory;
@@ -20,13 +22,15 @@ import com.google.api.client.json.jackson2.JacksonFactory;
 public class IDTokenVerifierServiceImpl implements IDTokenVerifierService {
 	
 	HttpTransport transport = new NetHttpTransport();
-	
 	JsonFactory jsonFactory  = new JacksonFactory();
+	
+	@Autowired
+	UserRepository userRepository;
 
 	private static final String CLIENT_ID = "113730373728-lu02f6c5mcjr8ae755463ns05a4k9hqi.apps.googleusercontent.com";
 	
 	@Override
-	public String verifyIDToken(String idTokenString) {
+	public User verifyIDToken(String idTokenString) {
 		GoogleIdTokenVerifier verifier = null;
 		try {
 			verifier = new GoogleIdTokenVerifier.Builder(transport, jsonFactory)
@@ -58,17 +62,19 @@ public class IDTokenVerifierServiceImpl implements IDTokenVerifierService {
 			String familyName = (String) payload.get("family_name");
 			String givenName = (String) payload.get("given_name");
 			
-			System.err.println(email);
-			System.err.println(emailVerified);
-			System.err.println(name);
-			System.err.println(pictureUrl);
-			System.err.println(locale);
-			System.err.println(familyName);
+			User user = null;
+			if(Objects.nonNull(userId) && Objects.nonNull(email) && Objects.nonNull(name)) {
+				user = new User();
+				user.setUserId(userId);
+				user.setEmail(email);
+				user.setName(name);
+				userRepository.save(user);
+			}
+			return user;
 		}
 		else {
-			System.err.println("Something went wrong");
+			throw new IllegalArgumentException();
 		}
-		return null;
 	}
 
 }

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.estore.domain.Product;
 import com.estore.domain.StoreData;
+import com.estore.domain.User;
 import com.estore.repository.ProductsRepository;
 import com.estore.service.IDTokenVerifierService;
 import com.estore.service.StoreService;
@@ -42,7 +43,7 @@ public class EstorePrimaryEndpoint {
 	}
 	
 	@PostMapping("/tokensignin")
-	public String verifyIDTokenForUserAuthentication(@RequestHeader("Authorization") String token) {
+	public User verifyIDTokenForUserAuthentication(@RequestHeader("Authorization") String token) {
 		return idTokenVerifierService.verifyIDToken(token);
 	}
 }
