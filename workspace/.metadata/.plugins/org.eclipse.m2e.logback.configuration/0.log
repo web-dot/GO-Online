@@ -804,3 +804,4 @@
 2023-04-15 10:47:45,654 [Worker-3: Launching Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2023-04-15 10:47:45,654 [Worker-3: Launching Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
 2023-04-15 10:47:45,655 [Worker-3: Launching Application] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\690\test-projects\e-store\e-store-server\src\test\resources
+2023-04-15 22:27:47,167 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.

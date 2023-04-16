@@ -15,3 +15,5 @@ f
 6src/main/java/com/estore/service/StoreServiceImpl.java,8\9\8994df720df1c3c890bd2bab797a0245d507dd4b
 l
 <src/main/java/com/estore/endpoint/EstorePrimaryEndpoint.java,c\c\cc8ba6da2fd822926a963e4f124ec4b066f736c9
+Y
+)src/main/resources/application.properties,0\6\06f65155ec73600b9fc5c4dc2883d4bb84d8e284

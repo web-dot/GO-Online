@@ -5,6 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 @Injectable({
   providedIn: 'root'
 })
+
 export class ProductsService {
 
   baseUrl : string = "http://localhost:8080" 
@@ -23,6 +24,14 @@ export class ProductsService {
 
   getAllProducts(): Observable<any>{
     return this.http.get(this.baseUrl + "/api/getAllProducts", this.options);
+  }
+
+  sendToken(token: string): Observable<any>{
+    const headers = new HttpHeaders({
+      'Content-Type':'application/x-www-form-urlencoded',
+      'Authorization':`Bearer ${token}`
+    });
+    return this.http.post(this.baseUrl + "/api/tokensignin", {}, {headers});
   }
 
 }

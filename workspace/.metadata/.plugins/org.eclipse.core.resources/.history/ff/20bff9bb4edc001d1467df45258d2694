@@ -1,0 +1,11 @@
+package com.estore.service;
+
+public class IDTokenVerifierServiceImpl implements IDTokenVerifierService {
+
+	@Override
+	public String verifyIDToken(String token) {
+		
+		return null;
+	}
+
+}

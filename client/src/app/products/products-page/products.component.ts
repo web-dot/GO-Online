@@ -25,10 +25,12 @@ export class ProductsComponent implements OnInit {
   storeDetails: StoreDetails;
 
   constructor(
-    private productsService: ProductsService,
+    public productsService: ProductsService,
     private dialog: MatDialog,
     private router: Router
-    ) { }
+    ) { 
+      this.productsService = productsService;
+    }
 
   ngOnInit(): void {
     this.displayProductsOnLoad();
@@ -36,7 +38,7 @@ export class ProductsComponent implements OnInit {
     window.onload = () => {
       google.accounts.id.initialize({
         client_id: "113730373728-lu02f6c5mcjr8ae755463ns05a4k9hqi.apps.googleusercontent.com",
-        callback: this.handleCredentialResponse
+        callback: this.handleCredentialResponse.bind(this)
       });
       google.accounts.id.renderButton(
         document.getElementById("buttonDiv"),
@@ -48,6 +50,15 @@ export class ProductsComponent implements OnInit {
 
   handleCredentialResponse(response: any) {
     console.log("Encoded JWT ID token: " + response.credential);
+    if(response){
+      this.productsService.sendToken(response.credential).subscribe(data => {
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      }
+      );
+    }
   }
 
   displayProductsOnLoad(){

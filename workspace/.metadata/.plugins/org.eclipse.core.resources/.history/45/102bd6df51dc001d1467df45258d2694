@@ -1,0 +1,43 @@
+package com.estore.service;
+
+import java.io.IOException;
+import java.security.GeneralSecurityException;
+import java.util.Collections;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
+import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken.Payload;
+import com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier;
+
+import com.google.api.client.http.HttpTransport;
+import com.google.api.client.http.javanet.NetHttpTransport;
+import com.google.api.client.json.JsonFactory;
+
+
+public class IDTokenVerifierServiceImpl implements IDTokenVerifierService {
+	
+	@Autowired
+	HttpTransport transport;
+	
+	@Autowired
+	JsonFactory jsonFactory;
+
+	private static final String CLIENT_ID = "113730373728-lu02f6c5mcjr8ae755463ns05a4k9hqi.apps.googleusercontent.com";
+	
+	@Override
+	public String verifyIDToken(String idTokenString) throws IOException, GeneralSecurityException {
+		GoogleIdTokenVerifier verifier;
+		try {
+			verifier = new GoogleIdTokenVerifier.Builder(transport, jsonFactory)
+					.setAudience(Collections.singletonList(CLIENT_ID))
+					.build();
+		} catch (Exception e) {
+			
+		}
+		
+		GoogleIdToken idToken = verifier.verify(idTokenString);
+		return null;
+	}
+
+}
