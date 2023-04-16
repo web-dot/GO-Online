@@ -37,13 +37,19 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-	    <dependency>
-	      <groupId>com.google.api-client</groupId>
-	      <artifactId>google-api-client</artifactId>
-	      <version>1.33.0</version>
-	    </dependency>
-	</dependencies>
+		<dependency>
+			<groupId>com.google.api-client</groupId>
+			<artifactId>google-api-client</artifactId>
+			<version>1.33.0</version>
+		</dependency>
+	<!-- https://mvnrepository.com/artifact/com.google.http-client/google-http-client-jackson2 -->
+<dependency>
+    <groupId>com.google.http-client</groupId>
+    <artifactId>google-http-client-jackson2</artifactId>
+    <version>1.38.1</version>
+</dependency>
 
+	</dependencies>
 	<build>
 		<plugins>
 			<plugin>

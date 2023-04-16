@@ -29,7 +29,7 @@ export class ProductsService {
   sendToken(token: string): Observable<any>{
     const headers = new HttpHeaders({
       'Content-Type':'application/x-www-form-urlencoded',
-      'Authorization':`Bearer ${token}`
+      'Authorization': token
     });
     return this.http.post(this.baseUrl + "/api/tokensignin", {}, {headers});
   }

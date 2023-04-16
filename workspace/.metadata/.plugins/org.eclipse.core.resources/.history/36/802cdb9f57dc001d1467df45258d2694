@@ -1,0 +1,10 @@
+package com.estore.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import com.google.api.client.json.Jackson2.JsonFactory;
+
+@Configuration
+public class AppConfig {
+	
+}

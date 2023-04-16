@@ -43,7 +43,6 @@ public class EstorePrimaryEndpoint {
 	
 	@PostMapping("/tokensignin")
 	public String verifyIDTokenForUserAuthentication(@RequestHeader("Authorization") String token) {
-		String idToken = token.replace("Bearer", "");
-		return idTokenVerifierService.verifyIDToken(idToken);
+		return idTokenVerifierService.verifyIDToken(token);
 	}
 }
