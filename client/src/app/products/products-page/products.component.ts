@@ -9,6 +9,7 @@ import { StoreFormComponent } from '../new-store-dialog/store-form/store-form.co
 import { Router } from '@angular/router';
 import { StoreDetails } from 'src/app/domains/StoreDetails';
 import { ExistingStoreDialogComponent } from '../existing-store-dialog/existing-store-dialog.component';
+import { User } from 'src/app/domains/User';
 
 
 
@@ -23,6 +24,7 @@ export class ProductsComponent implements OnInit {
   products: Product[];
   link : string;
   storeDetails: StoreDetails;
+  user: User;
 
   constructor(
     public productsService: ProductsService,
@@ -58,10 +60,12 @@ export class ProductsComponent implements OnInit {
   getUserDetailsOnIDToken(idtoken: string){
     if(idtoken !== null){
       this.productsService.sendToken(idtoken).subscribe(response => {
+        this.user = response as User;
+        const userJson = JSON.stringify(this.user);
         this.ngZone.run(() => {
           this.router.navigate(['/app-store-landing-page'], {
             queryParams:{
-              name: response.name,
+              userJson: userJson,
             }
           });
         });

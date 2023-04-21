@@ -1,41 +1,42 @@
 
-p	java:S106>"9Replace this use of System.out or System.err by a logger.(±À©úÿÿÿÿ8“³ÜĞø0HÎRMAJORZ
-CODE_SMELL
-k	java:S106@"9Replace this use of System.out or System.err by a logger.(š€Ú¦8“³ÜĞø0HĞRMAJORZ
-CODE_SMELL
-u
-java:S21536"IRemove the boxing to "Boolean"; The argument is already of the same type.(¬‚‰´8ĞåÌĞø0HçRMINORZBUG
-k	java:S106?"9Replace this use of System.out or System.err by a logger.(ÓÃ«ş8“³ÜĞø0HÏRMAJORZ
-CODE_SMELL
-k	java:S106="9Replace this use of System.out or System.err by a logger.(õ¡”8“³ÜĞø0HÍRMAJORZ
-CODE_SMELL
-k	java:S106A"9Replace this use of System.out or System.err by a logger.(·¬Ãã8“³ÜĞø0HÑRMAJORZ
-CODE_SMELL
-‹
-java:S1128"SRemove this unused import 'org.springframework.beans.factory.annotation.Autowired'.(¡¸Îùÿÿÿÿ8ÖøÊÑø0HRMINORZ
+b
+java:S1481<"/Remove this unused "pictureUrl" local variable.(¯Í‘¯8—‘…×ø0HíRMINORZ
 CODE_SMELL
 r
-java:S2259)"FA "NullPointerException" could be thrown; "verifier" is nullable here.(›±Ó¯8èæĞø0H„RMAJORZBUG
-p	java:S1062"9Replace this use of System.out or System.err by a logger.(ûÒ Ëşÿÿÿÿ8ĞåÌĞø0HáRMAJORZ
+java:S1854=":Remove this useless assignment to local variable "locale".(¹•±Ìşÿÿÿÿ8—‘…×ø0HèRMAJORZ
 CODE_SMELL
-K
-java:S21536"Remove the boxing to "Boolean".(¬‚‰´8ĞåÌĞø0HäRMINORZBUG
-k	java:S106B"9Replace this use of System.out or System.err by a logger.(Æ’É½8“³ÜĞø0HÒRMAJORZ
+b
+java:S1481>"/Remove this unused "familyName" local variable.(€ß¡ş8—‘…×ø0HñRMINORZ
 CODE_SMELL
-p	java:S106E"9Replace this use of System.out or System.err by a logger.(’£·ûÿÿÿÿ8ÖøÊÑø0H˜RMAJORZ
+q
+java:S1854<">Remove this useless assignment to local variable "pictureUrl".(¯Í‘¯8—‘…×ø0HéRMAJORZ
 CODE_SMELL
 `
-java:S1481;".Remove this unused "givenName" local variable.(ÏÄ„N8ĞåÌĞø0HôRMINORZ
+java:S1481?".Remove this unused "givenName" local variable.(ÏÄ„N8ĞåÌĞø0HåRMINORZ
 CODE_SMELL
-h
-java:S1128"0Remove this unused import 'java.io.IOException'.(ªº»Úıÿÿÿÿ8ÖøÊÑø0H™RMINORZ
+e
+java:S1481:"2Remove this unused "emailVerified" local variable.(¬‚‰´8—‘…×ø0HëRMINORZ
 CODE_SMELL
 o
-java:S1854;"=Remove this useless assignment to local variable "givenName".(ÏÄ„N8ĞåÌĞø0HÚRMAJORZ
+java:S1854?"=Remove this useless assignment to local variable "givenName".(ÏÄ„N8ĞåÌĞø0HáRMAJORZ
 CODE_SMELL
-{
-java:S1128"CRemove this unused import 'java.security.GeneralSecurityException'.(À×öÏıÿÿÿÿ8ÖøÊÑø0H›RMINORZ
+q
+java:S1854>">Remove this useless assignment to local variable "familyName".(€ß¡ş8—‘…×ø0HçRMAJORZ
 CODE_SMELL
+p	java:S1066"9Replace this use of System.out or System.err by a logger.(ûÒ Ëşÿÿÿÿ8ĞåÌĞø0HØRMAJORZ
+CODE_SMELL
+K
+java:S2153:"Remove the boxing to "Boolean".(¬‚‰´8ĞåÌĞø0HİRMINORZBUG
 n
-java:S1874"6Remove this use of "JacksonFactory"; it is deprecated.(Æ¶ğüÿÿÿÿ8ÖøÊÑø0H—RMINORZ
+java:S1874"6Remove this use of "JacksonFactory"; it is deprecated.(Æ¶ğüÿÿÿÿ8ÖøÊÑø0HàRMINORZ
 CODE_SMELL
+c
+java:S1481="+Remove this unused "locale" local variable.(¹•±Ìşÿÿÿÿ8—‘…×ø0HïRMINORZ
+CODE_SMELL
+r
+java:S2259-"FA "NullPointerException" could be thrown; "verifier" is nullable here.(›±Ó¯8èæĞø0HÄRMAJORZBUG
+t
+java:S1854:"ARemove this useless assignment to local variable "emailVerified".(¬‚‰´8—‘…×ø0HêRMAJORZ
+CODE_SMELL
+u
+java:S2153:"IRemove the boxing to "Boolean"; The argument is already of the same type.(¬‚‰´8ĞåÌĞø0HâRMINORZBUG

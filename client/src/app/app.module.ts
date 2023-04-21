@@ -16,6 +16,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { StoreLandingPageComponent } from './storelandingpage/store-landing-page/store-landing-page.component';
 import { ExistingStoreDialogComponent } from './products/existing-store-dialog/existing-store-dialog.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ExistingStoreDialogComponent } from './products/existing-store-dialog/e
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

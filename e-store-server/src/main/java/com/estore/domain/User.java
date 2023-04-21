@@ -14,6 +14,7 @@ public class User {
 	private String name;
 	private String pictureUrl;
 	private String familyName;
+	private boolean storeOwner;
 	public String getId() {
 		return id;
 	}
@@ -56,4 +57,12 @@ public class User {
 	public void setFamilyName(String familyName) {
 		this.familyName = familyName;
 	}
+	public boolean isStoreOwner() {
+		return storeOwner;
+	}
+	public void setStoreOwner(boolean storeOwner) {
+		this.storeOwner = storeOwner;
+	}
+
+	
 }

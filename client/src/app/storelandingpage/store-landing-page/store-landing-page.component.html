@@ -1,5 +1,17 @@
 <mat-toolbar>
-    <span class="shop-name">{{storeDetails.shopName}}</span>
+
+    <span class="shop-name">GO-Online Dashboard</span>
     <span class="example-spacer"></span>
     <span>welcome <span class="name">{{storeDetails.name}}</span></span>
   </mat-toolbar>
+    <mat-card class="starter-card">
+      <mat-card-content>
+            <h1>Start a store</h1>
+            <p>Create your own shop and start adding products.</p>
+      </mat-card-content>
+      <div *ngIf="!user.hasStore" class="open-shop col-md-2">
+        <button mat-raised-button color="warn" (click)="newShopDialog()">GET STARTED</button>
+      </div>
+    </mat-card>
+
+

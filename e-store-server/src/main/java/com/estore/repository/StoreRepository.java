@@ -7,5 +7,7 @@ import com.estore.domain.StoreData;
 
 @Repository
 public interface StoreRepository extends MongoRepository<StoreData, String>  {
+
+	StoreData findByUserId(String userId);
 	
 }

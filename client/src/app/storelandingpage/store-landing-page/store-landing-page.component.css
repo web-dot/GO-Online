@@ -9,3 +9,9 @@
   .shop-name{
     margin-left: 500px;
   }
+
+  .starter-card{
+    margin: auto; 
+    margin-top: 100px; 
+    width: 80%;
+  }

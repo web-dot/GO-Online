@@ -23,3 +23,7 @@ l
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 p
 @src/main/java/com/estore/service/IDTokenVerifierServiceImpl.java,4\7\47559a89836ebaf1f4a21e33ddca30e5d33317f0
+g
+7src/main/java/com/estore/repository/UserRepository.java,c\b\cb86e652142a21f0b7ddb90ab26aa855108e3f00
+Y
+)src/main/java/com/estore/domain/User.java,6\5\65a2f686c80e623de4cf9362b027963c1c33bb0c

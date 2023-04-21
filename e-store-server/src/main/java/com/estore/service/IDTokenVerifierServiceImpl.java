@@ -64,11 +64,15 @@ public class IDTokenVerifierServiceImpl implements IDTokenVerifierService {
 			
 			User user = null;
 			if(Objects.nonNull(userId) && Objects.nonNull(email) && Objects.nonNull(name)) {
-				user = new User();
-				user.setUserId(userId);
-				user.setEmail(email);
-				user.setName(name);
-				userRepository.save(user);
+				
+				user = userRepository.findByUserId(userId);
+				if(user == null) {
+					user = new User();
+					user.setUserId(userId);
+					user.setEmail(email);
+					user.setName(name);
+					userRepository.save(user);
+				}
 			}
 			return user;
 		}
