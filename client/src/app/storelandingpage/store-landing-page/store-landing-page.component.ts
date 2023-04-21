@@ -35,7 +35,6 @@ export class StoreLandingPageComponent implements OnInit {
     })
     // const userJson = this.route.snapshot.queryParams["userJson"];
     // this.user = JSON.parse(userJson);
-    this.storeDetails.name = this.user.name;
     this.storeCreated = this.user.storeOwner;
     //this.saveStoreData();
   }
@@ -58,10 +57,8 @@ export class StoreLandingPageComponent implements OnInit {
       console.log(result);
       if(result.productCategory !== null || result.shopName !== null){
         this.storeDetails.userId = this.user.userId;
-        this.storeDetails.openTime = result.openTime;
-        this.storeDetails.closeTime = result.closeTime;
-        this.storeDetails.productCategory = result.productCategory;
         this.storeDetails.shopName = result.shopName;
+        this.storeDetails.summary = result.summary;
         this.storeCreated = true;
       }
       this.storeService.saveStoreData(this.storeDetails).subscribe(response =>{

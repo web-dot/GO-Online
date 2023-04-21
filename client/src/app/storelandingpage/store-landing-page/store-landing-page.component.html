@@ -1,8 +1,8 @@
 <mat-toolbar>
 
-    <span class="shop-name">GO-Online Dashboard</span>
+    <span class="shop-name">Dashboard</span>
     <span class="example-spacer"></span>
-    <span>welcome <span class="name">{{storeDetails.name}}</span></span>
+    <span>welcome <span class="name">{{user.name}}</span></span>
   </mat-toolbar>
     <mat-card *ngIf="!storeCreated" class="starter-card">
       <mat-card-content>
@@ -19,26 +19,20 @@
             <p>Continue as a buyer.</p>
       </mat-card-content>
       <div class="open-shop col-md-2">
-        <button mat-raised-button color="warn" (click)="newShopDialog()">BUY</button>
+        <button mat-raised-button color="warn" (click)="newShopDialog()">CONTINUE AS BUYER</button>
       </div>
     </mat-card>
-    <mat-card *ngIf="storeCreated" class="starter-card">
-      <mat-card-content>
-            <h1>Add products</h1>
-            <p>Add products to your shop so that potenial buyers can start ordering.</p>
-      </mat-card-content>
-      <div class="open-shop col-md-2">
-        <button mat-raised-button color="primary">ADD PRODUCTS</button>
-      </div>
-    </mat-card>
-    <mat-card *ngIf="storeCreated" class="starter-card">
-      <mat-card-content>
-            <h1>View Products</h1>
-            <p>View or Edit product details.</p>
-      </mat-card-content>
-      <div class="open-shop col-md-2">
-        <button mat-raised-button color="primary">VIEW PRODUCTS</button>
-      </div>
-    </mat-card>
+    <div class="col-md-12 dash-container">
+      <mat-card *ngIf="storeCreated" class="dash-card">
+        <mat-card-content>
+              <h1>Orders</h1>
+        </mat-card-content>
+      </mat-card>
+      <mat-card *ngIf="storeCreated" class="dash-card">
+        <mat-card-content>
+              <h1>Store Manager</h1>
+        </mat-card-content>
+      </mat-card>
+    </div>
 
 

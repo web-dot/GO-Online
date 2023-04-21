@@ -8,19 +8,23 @@ public class StoreData {
 	
 	@Id
 	private String id;
+	private String userId;
 	private String shopName;
 	private String productCategoy;
-	private String firstName;
-	private String lastName;
+	private String name;
 	private String openTime;
 	private String closeTime;
-	
-	
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
+	}
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 	public String getShopName() {
 		return shopName;
@@ -34,17 +38,11 @@ public class StoreData {
 	public void setProductCategoy(String productCategoy) {
 		this.productCategoy = productCategoy;
 	}
-	public String getFirstName() {
-		return firstName;
+	public String getName() {
+		return name;
 	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	public String getLastName() {
-		return lastName;
-	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getOpenTime() {
 		return openTime;
@@ -58,6 +56,7 @@ public class StoreData {
 	public void setCloseTime(String closeTime) {
 		this.closeTime = closeTime;
 	}
+	
 	
 	
 }

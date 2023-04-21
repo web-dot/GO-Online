@@ -10,10 +10,7 @@ public class StoreData {
 	private String id;
 	private String userId;
 	private String shopName;
-	private String productCategoy;
-	private String name;
-	private String openTime;
-	private String closeTime;
+	private String summary;
 	public String getId() {
 		return id;
 	}
@@ -32,29 +29,11 @@ public class StoreData {
 	public void setShopName(String shopName) {
 		this.shopName = shopName;
 	}
-	public String getProductCategoy() {
-		return productCategoy;
+	public String getSummary() {
+		return summary;
 	}
-	public void setProductCategoy(String productCategoy) {
-		this.productCategoy = productCategoy;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getOpenTime() {
-		return openTime;
-	}
-	public void setOpenTime(String openTime) {
-		this.openTime = openTime;
-	}
-	public String getCloseTime() {
-		return closeTime;
-	}
-	public void setCloseTime(String closeTime) {
-		this.closeTime = closeTime;
+	public void setSummary(String summary) {
+		this.summary = summary;
 	}
 	
 	
