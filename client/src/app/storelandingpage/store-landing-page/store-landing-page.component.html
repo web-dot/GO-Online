@@ -4,13 +4,40 @@
     <span class="example-spacer"></span>
     <span>welcome <span class="name">{{storeDetails.name}}</span></span>
   </mat-toolbar>
-    <mat-card class="starter-card">
+    <mat-card *ngIf="!storeCreated" class="starter-card">
       <mat-card-content>
             <h1>Start a store</h1>
-            <p>Create your own shop and start adding products.</p>
+            <p>Create your own shop.</p>
       </mat-card-content>
-      <div *ngIf="!user.hasStore" class="open-shop col-md-2">
-        <button mat-raised-button color="warn" (click)="newShopDialog()">GET STARTED</button>
+      <div class="open-shop col-md-2">
+        <button mat-raised-button color="warn" (click)="newShopDialog()">OPEN SHOP</button>
+      </div>
+    </mat-card>
+    <mat-card *ngIf="!storeCreated" class="starter-card">
+      <mat-card-content>
+            <h1>Buy things</h1>
+            <p>Continue as a buyer.</p>
+      </mat-card-content>
+      <div class="open-shop col-md-2">
+        <button mat-raised-button color="warn" (click)="newShopDialog()">BUY</button>
+      </div>
+    </mat-card>
+    <mat-card *ngIf="storeCreated" class="starter-card">
+      <mat-card-content>
+            <h1>Add products</h1>
+            <p>Add products to your shop so that potenial buyers can start ordering.</p>
+      </mat-card-content>
+      <div class="open-shop col-md-2">
+        <button mat-raised-button color="primary">ADD PRODUCTS</button>
+      </div>
+    </mat-card>
+    <mat-card *ngIf="storeCreated" class="starter-card">
+      <mat-card-content>
+            <h1>View Products</h1>
+            <p>View or Edit product details.</p>
+      </mat-card-content>
+      <div class="open-shop col-md-2">
+        <button mat-raised-button color="primary">VIEW PRODUCTS</button>
       </div>
     </mat-card>
 

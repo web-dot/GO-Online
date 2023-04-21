@@ -36,6 +36,7 @@ export class StoreLandingPageComponent implements OnInit {
     // const userJson = this.route.snapshot.queryParams["userJson"];
     // this.user = JSON.parse(userJson);
     this.storeDetails.name = this.user.name;
+    this.storeCreated = this.user.storeOwner;
     //this.saveStoreData();
   }
 
@@ -48,8 +49,6 @@ export class StoreLandingPageComponent implements OnInit {
 
   newShopDialog(){
     const dialogRef = this.dialog.open(StoreFormComponent, {
-      width: '600px',
-      height: '500px',
       disableClose: false,
       autoFocus: true,
       hasBackdrop: true,
@@ -63,7 +62,7 @@ export class StoreLandingPageComponent implements OnInit {
         this.storeDetails.closeTime = result.closeTime;
         this.storeDetails.productCategory = result.productCategory;
         this.storeDetails.shopName = result.shopName;
-        this.user.hasStore = true;
+        this.storeCreated = true;
       }
       this.storeService.saveStoreData(this.storeDetails).subscribe(response =>{
         console.log(response);

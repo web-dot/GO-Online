@@ -6,5 +6,5 @@ export class User{
     name: string;
     pictureUrl: string;
     familyName: string;
-    hasStore:boolean
+    storeOwner:boolean
 }
