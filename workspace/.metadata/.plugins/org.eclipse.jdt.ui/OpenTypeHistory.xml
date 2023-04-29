@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<typeInfoHistroy>
-    <typeInfo handle="=e-store-server/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.estore.service{IDTokenVerifierService.java[IDTokenVerifierService" modifiers="513" timestamp="1681662202936"/>
-    <typeInfo handle="=e-store-server/C:\/Users\/admin\/.m2\/repository\/org\/springframework\/data\/spring-data-mongodb\/3.4.5\/spring-data-mongodb-3.4.5.jar=/maven.pomderived=/true=/=/maven.pomderived=/true=/=/maven.groupId=/org.springframework.data=/=/maven.artifactId=/spring-data-mongodb=/=/maven.version=/3.4.5=/=/maven.scope=/compile=/&lt;org.springframework.data.mongodb.repository(MongoRepository.class[MongoRepository" modifiers="1537" timestamp="1666888005571"/>
-</typeInfoHistroy>

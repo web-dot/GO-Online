@@ -76,11 +76,6 @@ export class ProductsComponent implements OnInit {
     }
   }
 
-
-
-
-
-
   displayProductsOnLoad(){
     this.productsService.getAllProducts().subscribe(data => {
       this.products = data as Product[];

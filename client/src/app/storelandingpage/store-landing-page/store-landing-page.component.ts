@@ -6,6 +6,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { StoreFormComponent } from 'src/app/products/new-store-dialog/store-form/store-form.component';
 import { Router } from '@angular/router';
 import { User } from 'src/app/domains/User';
+import { NewProductDialogComponent } from '../new-product-dialog/new-product-dialog.component';
+import { ProductsService } from 'src/app/products/products-page/products.service';
+import { Product } from 'src/app/domains/Product';
 
 @Component({
   selector: 'app-store-landing-page',
@@ -16,12 +19,18 @@ export class StoreLandingPageComponent implements OnInit {
 
   user: User;
   storeCreated: boolean = false;
+  product: Product;
+  products: Product[];
+  displayedColumns: string[] = ['name', 'description', 'category', 'price'];
+  dataSource: Product[];
+  
 
   constructor(
     private route: ActivatedRoute,
     private storeService: StorelandingpageService,
     private dialog: MatDialog,
-    private router: Router
+    private router: Router,
+    private productService: ProductsService,
     ) { }
 
   storeDetails: StoreDetails = new StoreDetails();
@@ -37,6 +46,7 @@ export class StoreLandingPageComponent implements OnInit {
     // this.user = JSON.parse(userJson);
     this.storeCreated = this.user.storeOwner;
     //this.saveStoreData();
+    this.loadProductsTable();
   }
 
 
@@ -68,6 +78,27 @@ export class StoreLandingPageComponent implements OnInit {
   }
 
 
+  addNewProduct(){
+    const dialogRef = this.dialog.open(NewProductDialogComponent, {
+      disableClose: false,
+      autoFocus: true,
+      hasBackdrop: true,
+      data: {}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.product = result as Product;
+      this.product.userId = this.user.userId;
+      this.productService.saveProduct(this.product).subscribe(res => {
+        console.log("response", res);
+        this.loadProductsTable();
+      })
+    });
+  }
 
-
+  loadProductsTable(){
+    this.productService.getAllProducts().subscribe(data => {
+      this.products = data as Product[];
+      this.dataSource = this.products;
+    });    
+  }
 }

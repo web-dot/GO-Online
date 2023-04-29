@@ -9,5 +9,5 @@ import com.estore.domain.Product;
 
 @Repository
 public interface ProductsRepository extends MongoRepository<Product, String> {
-
+	
 }

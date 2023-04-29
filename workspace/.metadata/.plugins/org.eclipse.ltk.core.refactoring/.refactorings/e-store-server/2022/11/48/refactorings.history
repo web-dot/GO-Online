@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename package &apos;ecom.estore.service&apos; to &apos;com.estore.service&apos;&#x0D;&#x0A;- Original project: &apos;e-store-server&apos;&#x0D;&#x0A;- Original element: &apos;e-store-server/src/main/java/ecom.estore.service&apos;&#x0D;&#x0A;- Renamed element: &apos;e-store-server/src/main/java/com.estore.service&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;ecom.estore.service&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ecom.estore.service" name="com.estore.service" qualified="false" references="true" stamp="1669482657706" textual="false" version="1.0"/>
-</session>

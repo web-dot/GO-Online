@@ -22,17 +22,54 @@
         <button mat-raised-button color="warn" (click)="newShopDialog()">CONTINUE AS BUYER</button>
       </div>
     </mat-card>
-    <div class="col-md-12 dash-container">
-      <mat-card *ngIf="storeCreated" class="dash-card">
+    <div *ngIf="storeCreated" class="col-md-12 dash-container">
+      <mat-card class="dash-card">
         <mat-card-content>
               <h1>Orders</h1>
         </mat-card-content>
       </mat-card>
-      <mat-card *ngIf="storeCreated" class="dash-card">
+      <mat-card class="dash-card">
         <mat-card-content>
-              <h1>Store Manager</h1>
+          <button mat-raised-button color="warn" (click)="addNewProduct()" >ADD A PRODUCT</button>
         </mat-card-content>
       </mat-card>
     </div>
+
+    <div *ngIf="storeCreated" class="table-container">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+        
+          <!-- Position Column -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          </ng-container>
+        
+          <!-- Name Column -->
+          <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef> Description </th>
+            <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+          </ng-container>
+        
+          <!-- Weight Column -->
+          <ng-container matColumnDef="category">
+            <th mat-header-cell *matHeaderCellDef> Category </th>
+            <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+          </ng-container>
+        
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef> Price </th>
+            <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>        
+    </div>
+
+
 
 

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { Product } from 'src/app/domains/Product';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,10 @@ export class ProductsService {
     //reportProgress?: boolean,
     responseType?: 'json';
     //withCredentials?: boolean,
+  }
+
+  saveProduct(product: Product): Observable<any>{
+    return this.http.post(this.baseUrl + "/api/saveProduct", product, this.options);
   }
 
   getAllProducts(): Observable<any>{

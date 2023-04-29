@@ -1,5 +1,8 @@
 export class Product{
     name: string;
+    userId: string;
     description: string;
-    link: string
+    category: string;
+    price: number;
+    date: string
 }

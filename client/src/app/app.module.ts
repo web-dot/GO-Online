@@ -17,6 +17,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { StoreLandingPageComponent } from './storelandingpage/store-landing-page/store-landing-page.component';
 import { ExistingStoreDialogComponent } from './products/existing-store-dialog/existing-store-dialog.component';
 import { MatCardModule } from '@angular/material/card';
+import { NewProductDialogComponent } from './storelandingpage/new-product-dialog/new-product-dialog.component';
+import { MatTableModule} from '@angular/material/table'
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { MatCardModule } from '@angular/material/card';
     ProductsComponent,
     StoreFormComponent,
     StoreLandingPageComponent,
-    ExistingStoreDialogComponent
+    ExistingStoreDialogComponent,
+    NewProductDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import { MatCardModule } from '@angular/material/card';
     MatSelectModule,
     MatButtonModule,
     MatToolbarModule,
-    MatCardModule
+    MatCardModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

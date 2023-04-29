@@ -32,6 +32,11 @@ public class EstorePrimaryEndpoint {
 	@Autowired
 	IDTokenVerifierService idTokenVerifierService;
 	
+	@PostMapping("/saveProduct")
+	public Product saveProduct(@RequestBody Product product) {
+		return productsRepository.save(product);
+	}
+	
 	@GetMapping("/getAllProducts")
 	public List<Product> getAllProducts(){
 		return productsRepository.findAll();
@@ -46,4 +51,6 @@ public class EstorePrimaryEndpoint {
 	public User verifyIDTokenForUserAuthentication(@RequestHeader("Authorization") String token) {
 		return idTokenVerifierService.verifyIDToken(token);
 	}
+	
+	
 }

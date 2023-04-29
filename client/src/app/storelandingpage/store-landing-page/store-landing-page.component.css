@@ -26,3 +26,11 @@
     flex-direction: row;
     justify-content: space-evenly;
   }
+
+  table {
+    width: 100%;
+  }
+  
+  .table-container{
+    margin-top: 20px;
+  }

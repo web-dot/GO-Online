@@ -1,8 +1,0 @@
-package com.estore.service;
-
-import java.io.IOException;
-
-public interface IDTokenVerifierService {
-		
-	public String verifyIDToken(String token) throws IOException;
-}
