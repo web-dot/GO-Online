@@ -21,7 +21,7 @@ export class StoreLandingPageComponent implements OnInit {
   storeCreated: boolean = false;
   product: Product;
   products: Product[];
-  displayedColumns: string[] = ['name', 'description', 'category', 'price'];
+  displayedColumns: string[] = ['name', 'description', 'category', 'price', "edit", "delete"];
   dataSource: Product[];
   
 
@@ -45,6 +45,7 @@ export class StoreLandingPageComponent implements OnInit {
     // const userJson = this.route.snapshot.queryParams["userJson"];
     // this.user = JSON.parse(userJson);
     this.storeCreated = this.user.storeOwner;
+    console.log(this.storeCreated);
     //this.saveStoreData();
     this.loadProductsTable();
   }
@@ -99,6 +100,15 @@ export class StoreLandingPageComponent implements OnInit {
     this.productService.getAllProducts().subscribe(data => {
       this.products = data as Product[];
       this.dataSource = this.products;
+      console.log(this.dataSource);
     });    
+  }
+
+  deleteProductById(id: string){
+    console.log(id)
+    this.storeService.deleteProductFromRepoById(id).subscribe(response => {
+      console.log(response);
+      this.loadProductsTable();
+    });
   }
 }

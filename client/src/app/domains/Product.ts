@@ -1,4 +1,5 @@
 export class Product{
+    id: string
     name: string;
     userId: string;
     description: string;

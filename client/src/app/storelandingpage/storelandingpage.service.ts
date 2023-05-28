@@ -22,4 +22,8 @@ export class StorelandingpageService {
     return this.http.post(this.baseUrl + "/api/saveNewStore", storeData, this.options);
   }
 
+  deleteProductFromRepoById(id: string){
+    return this.http.delete(this.baseUrl + "/api/delete-product/" + id);
+  }
+
 }
