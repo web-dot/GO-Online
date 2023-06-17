@@ -23,6 +23,7 @@ export class StoreLandingPageComponent implements OnInit {
   products: Product[];
   displayedColumns: string[] = ['name', 'description', 'category', 'price', "edit", "delete"];
   dataSource: Product[];
+  tableHeaderName: string = "Dashboard Table";
   
 
   constructor(
