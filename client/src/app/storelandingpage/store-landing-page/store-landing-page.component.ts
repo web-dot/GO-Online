@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { StoreDetails } from 'src/app/domains/StoreDetails';
 import { ActivatedRoute } from '@angular/router';
 import { StorelandingpageService } from '../storelandingpage.service';
@@ -10,6 +10,8 @@ import { NewProductDialogComponent } from '../new-product-dialog/new-product-dia
 import { ProductsService } from 'src/app/products/products-page/products.service';
 import { Product } from 'src/app/domains/Product';
 import { DeleteProductDialogComponent } from '../delete-product-dialog/delete-product-dialog.component';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-store-landing-page',
@@ -23,8 +25,11 @@ export class StoreLandingPageComponent implements OnInit {
   product: Product;
   products: Product[];
   displayedColumns: string[] = ['name', 'description', 'category', 'price', "edit", "delete"];
-  dataSource: Product[];
-  tableHeaderName: string = "Dashboard Table";
+  // dataSource: Product[];
+  tableHeaderName: string = "Products Table";
+  dataSource: MatTableDataSource<Product>;
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   
 
   constructor(
@@ -50,6 +55,11 @@ export class StoreLandingPageComponent implements OnInit {
     console.log(this.storeCreated);
     //this.saveStoreData();
     this.loadProductsTable();
+    this.dataSource = new MatTableDataSource<Product>();
+  }
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
   }
 
 
@@ -101,9 +111,10 @@ export class StoreLandingPageComponent implements OnInit {
   loadProductsTable(){
     this.productService.getAllProducts().subscribe(data => {
       this.products = data as Product[];
-      this.dataSource = this.products;
+      this.dataSource = new MatTableDataSource<Product>(this.products);
       console.log(this.dataSource);
-    });    
+    });
+    this.dataSource.paginator = this.paginator;    
   }
 
   deleteProductById(id: string){

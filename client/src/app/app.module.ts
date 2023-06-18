@@ -21,6 +21,7 @@ import { NewProductDialogComponent } from './storelandingpage/new-product-dialog
 import { MatTableModule} from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon'
 import { DeleteProductDialogComponent } from './storelandingpage/delete-product-dialog/delete-product-dialog.component';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { DeleteProductDialogComponent } from './storelandingpage/delete-product-
     MatToolbarModule,
     MatCardModule,
     MatTableModule,
-    MatIconModule
+    MatIconModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
