@@ -9,7 +9,6 @@ import { User } from 'src/app/domains/User';
 import { NewProductDialogComponent } from '../new-product-dialog/new-product-dialog.component';
 import { ProductsService } from 'src/app/products/products-page/products.service';
 import { Product } from 'src/app/domains/Product';
-import { DeleteConfirmationDialogComponent } from '../delete-confirmation-dialog/delete-confirmation-dialog.component';
 
 @Component({
   selector: 'app-store-landing-page',
@@ -107,19 +106,9 @@ export class StoreLandingPageComponent implements OnInit {
   }
 
   deleteProductById(id: string){
-    let dialogRef = this.dialog.open(DeleteConfirmationDialogComponent, {
-      disableClose: true,
-      autoFocus: true,
-      hasBackdrop: true,
-      data: {}
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      if(result){
-        this.storeService.deleteProductFromRepoById(id).subscribe(response => {
-          console.log(response);
-          this.loadProductsTable();
-        });
-      }
+    this.storeService.deleteProductFromRepoById(id).subscribe(response => {
+      console.log(response);
+      this.loadProductsTable();
     });
   }
 }
