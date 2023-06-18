@@ -20,6 +20,7 @@ import { MatCardModule } from '@angular/material/card';
 import { NewProductDialogComponent } from './storelandingpage/new-product-dialog/new-product-dialog.component';
 import { MatTableModule} from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon'
+import { DeleteProductDialogComponent } from './storelandingpage/delete-product-dialog/delete-product-dialog.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { MatIconModule } from '@angular/material/icon'
     StoreFormComponent,
     StoreLandingPageComponent,
     ExistingStoreDialogComponent,
-    NewProductDialogComponent
+    NewProductDialogComponent,
+    DeleteProductDialogComponent
   ],
   imports: [
     BrowserModule,
