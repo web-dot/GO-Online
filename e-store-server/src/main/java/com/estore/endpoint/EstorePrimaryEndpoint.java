@@ -63,5 +63,10 @@ public class EstorePrimaryEndpoint {
 		return productService.deleteProductById(id);
 	}
 	
+	@PostMapping("/updateProduct")
+	public Product updateProduct(@RequestBody Product product) {
+		return productService.updateProduct(product);
+	}
+	
 	
 }

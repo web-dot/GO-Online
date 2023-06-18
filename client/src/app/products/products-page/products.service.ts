@@ -39,4 +39,8 @@ export class ProductsService {
     return this.http.post(this.baseUrl + "/api/tokensignin", {}, {headers});
   }
 
+  updateProduct(product: Product): Observable<any>{
+    return this.http.post(this.baseUrl + "/api/updateProduct", product, this.options);
+  }
+
 }

@@ -22,15 +22,23 @@ export class NewProductDialogComponent implements OnInit {
 
   constructor(
     private dialogRef: MatDialogRef<NewProductDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
-  ) { }
+    @Inject(MAT_DIALOG_DATA) public data: any,
+
+  ) { 
+    console.log('data in dialog ', data);
+    if(data.editProduct != undefined){
+      this.productDetails = data.editProduct[0];
+      this.productForm.patchValue(this.productDetails);
+    }
+  }
 
   ngOnInit(): void {
   }
 
   submit(){
     this.productDetails = this.productForm.value;
-    this.dialogRef.close(this.productDetails);
+    console.log('after edit ', this.productDetails);
+    this.dialogRef.close({product: this.productDetails});
   }
 
 }

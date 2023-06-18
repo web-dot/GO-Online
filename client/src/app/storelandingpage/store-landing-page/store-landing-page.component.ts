@@ -13,6 +13,7 @@ import { DeleteProductDialogComponent } from '../delete-product-dialog/delete-pr
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 
+
 @Component({
   selector: 'app-store-landing-page',
   templateUrl: './store-landing-page.component.html',
@@ -99,12 +100,13 @@ export class StoreLandingPageComponent implements OnInit {
       data: {}
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.product = result as Product;
-      this.product.userId = this.user.userId;
-      this.productService.saveProduct(this.product).subscribe(res => {
-        console.log("response", res);
-        this.loadProductsTable();
-      })
+      if(result && result.product){
+        this.product = result.product as Product;
+        this.product.userId = this.user.userId;
+        this.productService.saveProduct(this.product).subscribe(res => {
+          this.loadProductsTable();
+        })
+      }
     });
   }
 
@@ -113,8 +115,8 @@ export class StoreLandingPageComponent implements OnInit {
       this.products = data as Product[];
       this.dataSource = new MatTableDataSource<Product>(this.products);
       console.log(this.dataSource);
+      this.dataSource.paginator = this.paginator;
     });
-    this.dataSource.paginator = this.paginator;    
   }
 
   deleteProductById(id: string){
@@ -131,6 +133,35 @@ export class StoreLandingPageComponent implements OnInit {
         });
       }
     });
-    
   }
+
+  navigateToHomePage(){
+    this.router.navigate(['']);
+  }
+
+  editProductById(id: string){
+    let currentProduct = this.products.filter(product => product.id === id);
+    console.log(currentProduct);
+    const dialogRef = this.dialog.open(NewProductDialogComponent, {
+      disableClose: false,
+      autoFocus: true,
+      hasBackdrop: true,
+      data: {
+        editProduct: currentProduct
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if(result && result.product){
+        this.product = result.product as Product;
+        this.product.id = id;
+        this.product.userId = this.user.userId;
+        console.log("product-id ", this.product.id);
+        this.productService.updateProduct(this.product).subscribe(res => {
+          this.loadProductsTable();
+        })
+      }
+    });
+
+  }
+
 }
