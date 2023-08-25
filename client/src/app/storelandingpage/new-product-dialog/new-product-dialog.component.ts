@@ -12,12 +12,16 @@ export class NewProductDialogComponent implements OnInit {
 
   productDescription: string = "Product Details";
   productDetails: Product;
+  selectedFile: File;
+
+
 
   productForm = new FormGroup({
     name: new FormControl(''),
     description: new FormControl(''),
     category: new FormControl(''),
-    price: new FormControl('')
+    price: new FormControl(''),
+    image: new FormControl('')
   });
 
   constructor(
@@ -35,9 +39,17 @@ export class NewProductDialogComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onFileSelected(event: any){
+    this.selectedFile = event.target.files[0];
+    this.productForm.patchValue({
+      image: this.selectedFile
+    });
+  }
+
   submit(){
+    // this.productForm.value.image = this.selectedFile;
     this.productDetails = this.productForm.value;
-    console.log('after edit ', this.productDetails);
+    console.log('pruductDetails after adding ', this.productDetails);
     this.dialogRef.close({product: this.productDetails});
   }
 
