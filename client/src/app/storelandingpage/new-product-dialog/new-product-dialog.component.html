@@ -1,8 +1,8 @@
 <h2 mat-dialog-title>{{productDescription}}</h2>
 
 <mat-dialog-content class="example-container">
-        <form [formGroup]='productForm' class="example-form">
-            <mat-form-field class="example-full-width">
+        <form #productForm="ngForm" (ngSubmit)="submit()" class="example-form">
+            <!-- <mat-form-field class="example-full-width">
               <mat-label>Product Name</mat-label>
               <input type="text" placeholder="product name" matInput formControlName="name" required>
             </mat-form-field>
@@ -20,8 +20,13 @@
             <mat-form-field class="example-full-width">
                 <mat-label>Price</mat-label>
                 <input matInput placeholder="price" formControlName="price">
-            </mat-form-field>
+            </mat-form-field> -->
             
+            <label for="name">Product Name</label>
+            <input type="text" id="name" name="productName" placeholder="product name" [(ngModel)]="productDetails.name">
+
+            <label for="image">Add Image</label>
+            <input type="file" id="image" name="productImage" (change)="onFileSelected($event)"/>
             
           </form>
 </mat-dialog-content>

@@ -5,5 +5,6 @@ export class Product{
     description: string;
     category: string;
     price: number;
-    date: string
+    date: string;
+    image : File;
 }

@@ -1,5 +1,6 @@
 package com.estore.domain;
 
+import java.io.File;
 import java.util.Date;
 
 import org.springframework.data.annotation.Id;
@@ -15,6 +16,7 @@ public class Product {
 	private String description;
 	private String category;
 	private int price;
+	private File image;
 	private Date date;
 	public String getId() {
 		return id;
@@ -58,5 +60,11 @@ public class Product {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	
+	public File getImage() {
+		return image;
+	}
+	public void setImage(File image) {
+		this.image = image;
+	}
+
 }

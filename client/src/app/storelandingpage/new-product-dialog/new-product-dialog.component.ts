@@ -11,8 +11,9 @@ import { Product } from 'src/app/domains/Product';
 export class NewProductDialogComponent implements OnInit {
 
   productDescription: string = "Product Details";
-  productDetails: Product;
+  productDetails: Product = new Product();
   selectedFile: File;
+  maxFileSize = 5000000;
 
 
 
@@ -40,17 +41,23 @@ export class NewProductDialogComponent implements OnInit {
   }
 
   onFileSelected(event: any){
-    this.selectedFile = event.target.files[0];
-    this.productForm.patchValue({
-      image: this.selectedFile
-    });
+    if(typeof this.selectedFile !== 'undefined'){
+      this.selectedFile = event.target.files[0];
+      let fileSize = this.selectedFile.size;
+      let fileName = this.selectedFile.name;
+      let fileType = fileName.substring(fileName.lastIndexOf('.') + 1).toLowerCase();
+  
+      if((fileType === 'png' || fileType === 'jpg' || fileType === 'jpg') && (fileSize <= this.maxFileSize) 
+        ){
+          this.productDetails.image = this.selectedFile;
+        }
+    }
   }
 
   submit(){
-    // this.productForm.value.image = this.selectedFile;
-    this.productDetails = this.productForm.value;
-    console.log('pruductDetails after adding ', this.productDetails);
     this.dialogRef.close({product: this.productDetails});
   }
+
+
 
 }

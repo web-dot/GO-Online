@@ -103,6 +103,7 @@ export class StoreLandingPageComponent implements OnInit {
       if(result && result.product){
         this.product = result.product as Product;
         this.product.userId = this.user.userId;
+        console.log("Product", this.product);
         this.productService.saveProduct(this.product).subscribe(res => {
           this.loadProductsTable();
         })
