@@ -39,18 +39,32 @@ export class NewProductDialogComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onFileSelected(event: any){
+  // onFileSelected(event: any){
+  //   this.selectedFile = event.target.files[0];
+  //   if(this.selectedFile){
+  //     const reader = new FileReader();
+  //     reader.onload = () => {
+  //       let temp = reader.result as string;
+  //       console.log("temp", temp);
+  //       let base64Image = temp.split(",")[1];
+  //       console.log("base64Image", base64Image);
+  //       this.productDetails.image = base64Image;
+  //     }
+  //     reader.readAsDataURL(this.selectedFile);
+  //   }
+  // }
+
+  onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
-    if(this.selectedFile){
-      const reader = new FileReader();
-      reader.onload = () => {
-        let temp = reader.result as string;
-        console.log(temp);
-        this.productDetails.image = reader.result as string;
-      }
-      reader.readAsDataURL(this.selectedFile);
+    if (this.selectedFile) {
+        const reader = new FileReader();
+        reader.onload = () => {
+            this.productDetails.image = reader.result as string;
+        };
+        reader.readAsDataURL(this.selectedFile); // Read the file as data URL
     }
-  }
+}
+
 
   submit(){
     console.log('pruductDetails after adding ', this.productDetails);

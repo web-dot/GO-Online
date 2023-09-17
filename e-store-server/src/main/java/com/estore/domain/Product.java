@@ -16,8 +16,9 @@ public class Product {
 	private String description;
 	private String category;
 	private int price;
-	private byte[] image;
+	private String image;
 	private Date date;
+	private byte[] imageData;
 	public String getId() {
 		return id;
 	}
@@ -60,11 +61,17 @@ public class Product {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	public byte[] getImage() {
+	public String getImage() {
 		return image;
 	}
-	public void setImage(byte[] image) {
+	public void setImage(String image) {
 		this.image = image;
+	}
+	public byte[] getImageData() {
+		return imageData;
+	}
+	public void setImageData(byte[] imageData) {
+		this.imageData = imageData;
 	}
 	
 

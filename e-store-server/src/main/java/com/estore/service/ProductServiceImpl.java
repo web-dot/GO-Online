@@ -1,5 +1,9 @@
 package com.estore.service;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Base64;
 import java.util.Objects;
 import java.util.Optional;
@@ -12,8 +16,6 @@ import org.springframework.stereotype.Service;
 import com.estore.domain.Product;
 import com.estore.exceptions_custom.ServiceException;
 import com.estore.repository.ProductsRepository;
-
-import ch.qos.logback.core.joran.util.beans.BeanUtil;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -58,11 +60,30 @@ public class ProductServiceImpl implements ProductService {
 	
 	@Override
 	public Product saveProduct(Product product) {
-		if(product.getImage() != null) {
-			byte[] imageBytes = Base64.getDecoder().decode(product.getImage());
-			product.setImage(imageBytes);
-			return productsRepo.save(product);
+		try {
+			if(product.getImage() != null) {
+				String base64Image = product.getImage();
+				String[] parts = base64Image.split(",");
+				String base64Data = parts[1];
+				byte[] imageBytes= Base64.getDecoder().decode(base64Data);
+				InputStream inputStream = new ByteArrayInputStream(imageBytes);
+				byte[] byteArray = readFully(inputStream);
+				product.setImageData(byteArray);
+				return productsRepo.save(product);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	public byte[] readFully(InputStream input) throws IOException {
+		byte[] buffer = new byte[8192];
+		int bytesRead;
+		ByteArrayOutputStream output = new ByteArrayOutputStream();
+		while((bytesRead = input.read(buffer)) != -1) {
+			output.write(buffer, 0, bytesRead);
+		}
+		return output.toByteArray();
 	}
 }
