@@ -72,7 +72,7 @@ public class ProductServiceImpl implements ProductService {
 				return productsRepo.save(product);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new IllegalArgumentException();
 		}
 		return null;
 	}
