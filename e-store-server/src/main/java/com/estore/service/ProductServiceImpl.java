@@ -1,5 +1,6 @@
 package com.estore.service;
 
+import java.util.Base64;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -52,5 +53,16 @@ public class ProductServiceImpl implements ProductService {
 			e.printStackTrace();
 		}
 		return productToUpdate;
+	}
+	
+	
+	@Override
+	public Product saveProduct(Product product) {
+		if(product.getImage() != null) {
+			byte[] imageBytes = Base64.getDecoder().decode(product.getImage());
+			product.setImage(imageBytes);
+			return productsRepo.save(product);
+		}
+		return null;
 	}
 }

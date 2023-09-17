@@ -16,7 +16,7 @@ public class Product {
 	private String description;
 	private String category;
 	private int price;
-	private File image;
+	private byte[] image;
 	private Date date;
 	public String getId() {
 		return id;
@@ -60,11 +60,12 @@ public class Product {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	public File getImage() {
+	public byte[] getImage() {
 		return image;
 	}
-	public void setImage(File image) {
+	public void setImage(byte[] image) {
 		this.image = image;
 	}
+	
 
 }

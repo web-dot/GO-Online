@@ -7,4 +7,5 @@ import com.estore.domain.Product;
 public interface ProductService {
 	public Product deleteProductById(String id);
 	public Product updateProduct(Product product);
+	public Product saveProduct(Product product);
 }

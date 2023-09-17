@@ -23,10 +23,10 @@
             </mat-form-field> -->
             
             <label for="name">Product Name</label>
-            <input type="text" id="name" name="productName" placeholder="product name" [(ngModel)]="productDetails.name">
+            <input type="text" id="name" name="name" placeholder="product name" [(ngModel)]="productDetails.name">
 
             <label for="image">Add Image</label>
-            <input type="file" id="image" name="productImage" (change)="onFileSelected($event)"/>
+            <input type="file" id="image" name="image" (change)="onFileSelected($event)"/>
             
           </form>
 </mat-dialog-content>

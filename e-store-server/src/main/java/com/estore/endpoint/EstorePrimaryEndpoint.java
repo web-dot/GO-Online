@@ -40,7 +40,7 @@ public class EstorePrimaryEndpoint {
 	
 	@PostMapping("/saveProduct")
 	public Product saveProduct(@RequestBody Product product) {
-		return productsRepository.save(product);
+		return productService.saveProduct(product);
 	}
 	
 	@GetMapping("/getAllProducts")
