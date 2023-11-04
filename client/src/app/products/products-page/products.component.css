@@ -10,8 +10,10 @@
     width: 400px;
     height: 400px;
     /* border: 1px solid red; */
-}
+}   
 .card{
+    display: flex;
+    justify-content: center;
     margin-top: 1em;
 }
 
@@ -27,3 +29,12 @@
     width: 40%;
     float: right;
 }
+
+.product-image {
+    width: 200px; /* Set your desired width */
+    height: 200px; /* Set your desired height */
+    background-size:cover; /* Scale the background image to cover the entire container */
+    margin: auto;
+  }
+  
+  

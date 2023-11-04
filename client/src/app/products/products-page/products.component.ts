@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 import { StoreDetails } from 'src/app/domains/StoreDetails';
 import { ExistingStoreDialogComponent } from '../existing-store-dialog/existing-store-dialog.component';
 import { User } from 'src/app/domains/User';
+import { ActivatedRoute, Params } from '@angular/router';
 
 
 
@@ -24,15 +25,23 @@ export class ProductsComponent implements OnInit {
   products: Product[];
   link : string;
   storeDetails: StoreDetails;
-  user: User;
+  user: User = new User;
 
   constructor(
     public productsService: ProductsService,
     private dialog: MatDialog,
     private router: Router,
-    private ngZone: NgZone
+    private ngZone: NgZone,
+    public activatedRoute: ActivatedRoute,
+
     ) { 
       this.productsService = productsService;
+      this.activatedRoute
+      .queryParams
+      .subscribe((params: Params) => {
+        this.user = JSON.parse(params['user']) as User;
+        console.log("after routing", this.user.name);
+      })
     }
 
   ngOnInit(): void {

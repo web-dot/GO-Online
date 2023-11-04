@@ -165,4 +165,12 @@ export class StoreLandingPageComponent implements OnInit {
 
   }
 
+  redirectToProducts(){
+    console.log("before routing", this.user);
+    this.router.navigate([''], {
+      queryParams:{
+        user: JSON.stringify(this.user)
+      }
+    });
+  }
 }

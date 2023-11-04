@@ -28,10 +28,13 @@
 <div class="products-container">
     <div class="product" *ngFor="let product of products; index as i">
         <div class="card" style="width: 18rem;">
-            <img class="card-img-top" [src]= "product.image" alt="Product image">
+          <div class="product-image" [style.background-image]="'url(' + product.image + ')'"></div>
             <div class="card-body">
                 <p class="card-text">{{product.name}}</p>
-              <a class="btn btn-primary">GET IT NOW!</a>
+                <p class="card-text">INR {{product.price}}</p>
+              <!-- <a class="btn btn-primary">GET IT NOW!</a> -->
+              <button class="" mat-raised-button color="primary">GET IT NOW!</button>
+              <button mat-raised-button>ADD TO CART</button>
             </div>
           </div>
     </div>
