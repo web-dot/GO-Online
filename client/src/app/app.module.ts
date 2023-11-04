@@ -22,6 +22,9 @@ import { MatTableModule} from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon'
 import { DeleteProductDialogComponent } from './storelandingpage/delete-product-dialog/delete-product-dialog.component';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { PaymentsDialogComponent } from './payments-dialog/payments-dialog.component';
+import { MatRadioModule } from '@angular/material/radio';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +34,8 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
     StoreLandingPageComponent,
     ExistingStoreDialogComponent,
     NewProductDialogComponent,
-    DeleteProductDialogComponent
+    DeleteProductDialogComponent,
+    PaymentsDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +53,8 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
     MatCardModule,
     MatTableModule,
     MatIconModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

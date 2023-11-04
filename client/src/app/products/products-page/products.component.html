@@ -32,9 +32,10 @@
             <div class="card-body">
                 <p class="card-text">{{product.name}}</p>
                 <p class="card-text">INR {{product.price}}</p>
-              <!-- <a class="btn btn-primary">GET IT NOW!</a> -->
-              <button class="" mat-raised-button color="primary">GET IT NOW!</button>
-              <button mat-raised-button>ADD TO CART</button>
+              <div class="product-button-holder">
+                <button class="product-page-button" (click)="openPaymentsDialog(product)" mat-raised-button color="primary">GET IT NOW!</button>
+                <button class="product-page-button" mat-raised-button>ADD TO CART</button>
+              </div>
             </div>
           </div>
     </div>

@@ -11,6 +11,7 @@ import { StoreDetails } from 'src/app/domains/StoreDetails';
 import { ExistingStoreDialogComponent } from '../existing-store-dialog/existing-store-dialog.component';
 import { User } from 'src/app/domains/User';
 import { ActivatedRoute, Params } from '@angular/router';
+import { PaymentsDialogComponent } from 'src/app/payments-dialog/payments-dialog.component';
 
 
 
@@ -138,7 +139,21 @@ export class ProductsComponent implements OnInit {
     })
   }
 
- 
+  openPaymentsDialog(product: Product){
+    const dialogRef = this.dialog.open(PaymentsDialogComponent, {
+      disableClose: false,
+      autoFocus: true,
+      hasBackdrop: true,
+      width: '400px',
+      data:{
+        user: JSON.stringify(this.user)
+      }
+    })
+
+    dialogRef.afterClosed().subscribe(result => {
+      
+    })
+  }
 
 }
 
