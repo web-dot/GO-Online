@@ -8,3 +8,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     flex-direction: row;
     justify-content: space-around;
 }
+
+.payment-button {
+    display: block;
+    margin-top: 20px; /* Adjust the margin as needed */
+  }
+  

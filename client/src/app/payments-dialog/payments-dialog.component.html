@@ -1,11 +1,11 @@
-<h2>Choose Payment Method</h2>
-
-<mat-radio-group [(ngModel)]="selectedPaymentMethod">
-  <mat-radio-button [value]="'netbanking'">Net Banking</mat-radio-button>
-  <mat-radio-button [value]="'card'">Card</mat-radio-button>
-</mat-radio-group>
-
-<div class="actions">
-  <button mat-raised-button color="primary" (click)="selectPaymentMethod()">Select</button>
-  <button mat-button (click)="cancel()">Cancel</button>
-</div>
+<!-- payments-dialog.component.html -->
+<mat-dialog-content>
+  <h2>Select Payment Method</h2>
+  <mat-radio-group [(ngModel)]="selectedPaymentMethod">
+    <mat-radio-button value="razorpay">Razorpay</mat-radio-button>
+    <!-- Add more payment methods here -->
+  </mat-radio-group>
+  <div class="payment-button">
+    <button mat-raised-button color="primary">PAY NOW</button>
+  </div>  
+</mat-dialog-content>
