@@ -15,16 +15,7 @@ export class PaymentsDialogComponent {
   }
 
   payNow() {
-    // Handle payment based on the selected payment method
-    if (this.selectedPaymentMethod === 'razorpay') {
-      // Initialize Razorpay and trigger payment modal
-      // Handle payment response within this block
-      // Close the dialog after payment is complete
-    }
-
-    // You can handle other payment methods in a similar way
-
     // Close the dialog after payment
-    this.dialogRef.close(/* Payment status or any other data */);
+    this.dialogRef.close(this.selectedPaymentMethod);
   }
 }
