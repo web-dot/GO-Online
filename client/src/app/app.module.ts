@@ -24,6 +24,8 @@ import { DeleteProductDialogComponent } from './storelandingpage/delete-product-
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { PaymentsDialogComponent } from './payments-dialog/payments-dialog.component';
 import { MatRadioModule } from '@angular/material/radio';
+import { AddedItemDetailsDialogComponent } from './products/products-page/added-item-details-dialog/added-item-details-dialog.component';
+import { ItemsCartComponent } from './items-cart/items-cart.component';
 
 
 @NgModule({
@@ -35,7 +37,9 @@ import { MatRadioModule } from '@angular/material/radio';
     ExistingStoreDialogComponent,
     NewProductDialogComponent,
     DeleteProductDialogComponent,
-    PaymentsDialogComponent
+    PaymentsDialogComponent,
+    AddedItemDetailsDialogComponent,
+    ItemsCartComponent
   ],
   imports: [
     BrowserModule,

@@ -12,6 +12,7 @@ import { ExistingStoreDialogComponent } from '../existing-store-dialog/existing-
 import { User } from 'src/app/domains/User';
 import { ActivatedRoute, Params } from '@angular/router';
 import { PaymentsDialogComponent } from 'src/app/payments-dialog/payments-dialog.component';
+import { AddedItemDetailsDialogComponent } from './added-item-details-dialog/added-item-details-dialog.component';
 
 
 
@@ -27,6 +28,8 @@ export class ProductsComponent implements OnInit {
   link : string;
   storeDetails: StoreDetails;
   user: User = new User;
+  cartList: Product[] = [];
+  cartHasItems: boolean = false;
 
   constructor(
     public productsService: ProductsService,
@@ -94,6 +97,17 @@ export class ProductsComponent implements OnInit {
 
   }
 
+
+
+  goToCart(){
+    this.router.navigate(['/app-items-cart'], {
+      queryParams:{
+        cartItems: JSON.stringify(this.cartList)
+      } 
+    });
+  }
+
+
   newShopDialog(){
     const dialogRef = this.dialog.open(StoreFormComponent, {
       width: '600px',
@@ -153,6 +167,25 @@ export class ProductsComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
     })
+  }
+
+  addItemToCart(product: Product){
+    console.log("ProductsComponent",product);
+    const dialogRef = this.dialog.open(AddedItemDetailsDialogComponent, {
+      disableClose: false,
+      autoFocus: true,
+      width: '400px',
+      height: '500px',
+      data:{
+        product: product
+      }
+    })
+    this.cartList.push(product);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+    })
+    this.cartHasItems = true;
+    console.log(this.cartList);
   }
 
 }

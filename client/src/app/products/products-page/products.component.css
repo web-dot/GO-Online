@@ -36,5 +36,9 @@
     background-size:cover; /* Scale the background image to cover the entire container */
     margin: auto;
   }
+
+  .mat-raised-button{
+    margin: auto;
+  }
   
   

@@ -1,52 +1,73 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>MVC Online Store</title>
-  </head>
-  <body> 
-    <div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <div class="heading col-md-10">
-      <h1 class="display-4">GO-Online</h1>
-      <p class="lead">Online store platform for everyone</p>
-    </div>
-    <!-- <div class="open-shop col-md-2">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <title>MVC Online Store</title>
+</head>
+
+<body>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <div class="heading col-md-10">
+        <h1 class="display-4">GO-Online</h1>
+        <p class="lead">Online store platform for everyone</p>
+      </div>
+      <!-- <div class="open-shop col-md-2">
       <button mat-raised-button color="warn" (click)="newShopDialog()">START A SHOP</button>
     </div>
     <div class="open-shop col-md-3">
       <button mat-stroked-button color="accent" (click)="  existingStoreDialog()">ALREADY HAVE A SHOP</button>
     </div> -->
-    <div id="buttonDiv"></div> 
-</div>
-  </div>
-<div class="products-container">
-    <div class="product" *ngFor="let product of products; index as i">
-        <div class="card" style="width: 18rem;">
-          <div class="product-image" [style.background-image]="'url(' + product.image + ')'"></div>
-            <div class="card-body">
-                <p class="card-text">{{product.name}}</p>
-                <p class="card-text">INR {{product.price}}</p>
-              <div class="product-button-holder">
-                <button class="product-page-button" (click)="openPaymentsDialog(product)" mat-raised-button color="primary">GET IT NOW!</button>
-                <button class="product-page-button" mat-raised-button>ADD TO CART</button>
-              </div>
-            </div>
-          </div>
+      <!-- <div class="open-shop col-md-2" *ngIf="cartHasItems">
+        <button mat-raised-button color="warn" (click)="goToCart()">Go to CART</button>
+      </div> -->
+      <div id="buttonDiv"></div>
     </div>
-</div>
+  </div>
+  <div class="row">
+    <div class="col-md-10" style="height: 50px; margin: auto;">
+      <div class="col-md-6">
+        <button style="float: right;" mat-raised-button color="warn" (click)="goToCart()" [disabled]="!cartHasItems">Go to CART</button>
+      </div>
+    </div>
+  </div>
+  <div class="products-container">
+    <div class="product" *ngFor="let product of products; index as i">
+      <div class="card" style="width: 18rem;">
+        <div class="product-image" [style.background-image]="'url(' + product.image + ')'"></div>
+        <div class="card-body">
+          <p class="card-text">{{product.name}}</p>
+          <p class="card-text">INR {{product.price}}</p>
+          <div class="product-button-holder">
+            <button class="product-page-button" (click)="openPaymentsDialog(product)" mat-raised-button
+              color="primary">GET IT NOW!</button>
+            <button class="product-page-button" mat-raised-button (click)="addItemToCart(product)">ADD TO CART</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
 </body>
+
 </html>

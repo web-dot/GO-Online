@@ -1,0 +1,11 @@
+<h2>Item Successfully Added</h2>
+<mat-dialog-content>
+  <div class="product-image" [style.background-image]="'url(' + product.image + ')'"></div>
+  <h2>Product: {{product.name}} has been added to cart</h2>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <!-- <button mat-button mat-dialog-close (click)="close()">OK</button> -->
+  <div class="col-md-12">
+      <button  mat-flat-button color="primary" (click)="close()">OK</button>
+  </div>
+</mat-dialog-actions>
