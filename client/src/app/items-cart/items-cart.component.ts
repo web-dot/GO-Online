@@ -15,6 +15,8 @@ export class ItemsCartComponent implements OnInit {
 
 
   cartList: Product[] = [];
+  product: Product;
+
 
 
   constructor(
