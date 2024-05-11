@@ -44,7 +44,11 @@ export class ItemsCartComponent implements OnInit {
   }
 
   routeToPaymentPage(){
-    this.router.navigate
+    this.router.navigate(['/app-payment-page'], {
+      queryParams:{
+        totalAmount: this.totalAmount
+      }
+    })
   }
 
 }
