@@ -1,10 +1,12 @@
 11/26/22: 
 accessing store-form(new store dialog) data in store landing page using queryparams 
 
+11/05/24:
+========
 
-this.router.navigate(['/app-store-landing-page'], {
-        queryParams: {  
-          "firstName": data.firstName
+1. display items in cart-component and total cost
 
-        }
-      })
+2. can remove item from cart
+3. proceed to checkout
+4. address update
+5. payment
