@@ -1,22 +1,24 @@
 
 <div class="row" style="display: flex;">
-    <div class="items col-md-6" style="width: 50%; border: 1px solid black;">
+    <div class="items col-md-6" style="width: 50%;">
         <div *ngFor="let product of cartList">
-            <mat-card class="example-card">
+            <mat-card class="product-card">
                 <mat-card-header>
                   <mat-card-title>{{product.name}}</mat-card-title>
                 </mat-card-header>
-                <img mat-card-image src=product.image>
+                <img class="product-image" mat-card-image src={{product.image}}>
                 <mat-card-content>
-                    <p>{{product.price}}</p>
+                    <p class="card-text">{{product.name}}</p>
+                  <p class="card-text">INR {{product.price}}</p>
                 </mat-card-content>
                 <mat-card-actions>
-                  <button mat-button>Delete</button>
+                    <button class="product-page-button" mat-raised-button
+                    color="primary">DELETE</button>
                 </mat-card-actions>
               </mat-card>
         </div>
     </div>
-    <div class="details col-md-6" style="width: 50%; border: 1px solid black;">
+    <div class="details col-md-6" style="width: 50%;">
         <mat-card class="example-card">
             <mat-card-header>
               <mat-card-title>Total Price</mat-card-title>
