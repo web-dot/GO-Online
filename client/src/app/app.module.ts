@@ -26,6 +26,7 @@ import { PaymentsDialogComponent } from './payments-dialog/payments-dialog.compo
 import { MatRadioModule } from '@angular/material/radio';
 import { AddedItemDetailsDialogComponent } from './products/products-page/added-item-details-dialog/added-item-details-dialog.component';
 import { ItemsCartComponent } from './items-cart/items-cart.component';
+import { PaymentPageComponent } from './payment-page/payment-page.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { ItemsCartComponent } from './items-cart/items-cart.component';
     DeleteProductDialogComponent,
     PaymentsDialogComponent,
     AddedItemDetailsDialogComponent,
-    ItemsCartComponent
+    ItemsCartComponent,
+    PaymentPageComponent
   ],
   imports: [
     BrowserModule,

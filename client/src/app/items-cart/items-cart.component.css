@@ -25,4 +25,21 @@
   .product-card{
     width: 400px;
     margin-top: 1em;
+    margin-left: 5em;
+  }
+
+  .section{
+    width: 48%;
+  }
+
+  .details-card p{
+    font-size: 20px !important;
+  }
+
+  .checkout-button{
+    font-size: 20px;
+  }
+
+  .details-title{
+    font-size: 30px;
   }

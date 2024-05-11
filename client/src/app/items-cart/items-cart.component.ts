@@ -16,6 +16,7 @@ export class ItemsCartComponent implements OnInit {
 
   cartList: Product[] = [];
   product: Product;
+  totalAmount: number;
 
 
 
@@ -35,6 +36,15 @@ export class ItemsCartComponent implements OnInit {
       }
     })
     console.log(this.cartList);
+    this.calculateTotalAmount();
+  }
+
+  calculateTotalAmount(){
+    this.totalAmount = this.cartList.reduce((total, product) => total + product.price, 0);
+  }
+
+  routeToPaymentPage(){
+    this.router.navigate
   }
 
 }

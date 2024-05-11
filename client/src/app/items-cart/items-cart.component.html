@@ -1,37 +1,43 @@
 
-<div class="row" style="display: flex;">
-    <div class="items col-md-6" style="width: 50%;">
-        <div *ngFor="let product of cartList">
-            <mat-card class="product-card">
-                <mat-card-header>
-                  <mat-card-title>{{product.name}}</mat-card-title>
-                </mat-card-header>
-                <img class="product-image" mat-card-image src={{product.image}}>
-                <mat-card-content>
-                    <p class="card-text">{{product.name}}</p>
-                  <p class="card-text">INR {{product.price}}</p>
-                </mat-card-content>
-                <mat-card-actions>
-                    <button class="product-page-button" mat-raised-button
-                    color="primary">DELETE</button>
-                </mat-card-actions>
-              </mat-card>
-        </div>
+<div class="row" style="display: flex; flex-direction: row; justify-content: space-around;">
+    <div class="section col-md-6">
+        <mat-card>
+            <div *ngFor="let product of cartList">
+                <mat-card class="product-card">
+                    <mat-card-header>
+                      <mat-card-title>{{product.name}}</mat-card-title>
+                    </mat-card-header>
+                    <img class="product-image" mat-card-image src={{product.image}}>
+                    <mat-card-content>
+                      <p class="card-text">INR {{product.price}}</p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button class="product-page-button" mat-raised-button
+                        color="primary">DELETE</button>
+                    </mat-card-actions>
+                  </mat-card>
+            </div>
+        </mat-card>
     </div>
-    <div class="details col-md-6" style="width: 50%;">
-        <mat-card class="example-card">
+    <div class="section col-md-6">
+        <mat-card class="details-card">
             <mat-card-header>
-              <mat-card-title>Total Price</mat-card-title>
+              <mat-card-title class="details-title">Item Details</mat-card-title>
             </mat-card-header>
             <mat-card-content>
-              <div>
-                <p>Item 1</p>
-              </div>
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-button>Proceed to checkout</button>
-              <button mat-button>Go back</button>
+              <div *ngFor="let product of cartList">
+                <p>{{product.name}} - <em>INR</em> {{product.price}}</p>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <!-- <button class="product-page-button" mat-raised-button
+                color="primary">Back</button> -->
             </mat-card-actions>
-          </mat-card>
+        </mat-card>
+        <div class="row">
+            <h2><em>Total - INR {{totalAmount}}</em></h2>
+        </div>
+        <button class="checkout-button" (click)="routeToPaymentPage()" mat-raised-button
+        color="primary">Proceed to checkout</button>
     </div>
 </div>
